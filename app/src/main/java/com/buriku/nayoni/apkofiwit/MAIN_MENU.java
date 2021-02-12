@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Layout;
 import android.util.Log;
@@ -19,15 +21,17 @@ public class MAIN_MENU extends Fragment {
 
     TextView version;
     Button start;
+    Button setting;
+    Button credits;
     MainActivity activity;
     String current_ver = "";
-    /*
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = (MainActivity) getActivity();
     }
-    */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -35,11 +39,15 @@ public class MAIN_MENU extends Fragment {
         getFragmentManager().popBackStack();
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
         start = view.findViewById(R.id.start_button);
+        setting = view.findViewById(R.id.setting);
+        credits = view.findViewById(R.id.credits);
         version = view.findViewById(R.id.version);
-        if (getString(R.string.indev) == "true")
+        if (getString(R.string.indev) != "true")
         {
             current_ver += "[CONSTRUCTING]\n";
+            Log.w("DAB", "indev true.");
         }
+        current_ver += "ver: ";
         current_ver += BuildConfig.VERSION_NAME;
         Log.w("DAB", "current = " + current_ver);
         version.setText(current_ver);
@@ -49,7 +57,29 @@ public class MAIN_MENU extends Fragment {
                 Snackbar.make(view, "PRESSED!", Snackbar.LENGTH_LONG).show();
             }
         });
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        credits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                CREDITS credits = new CREDITS();
+                fragmentTransaction.replace(R.id.place_view_in_here, credits);
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
     }
 }
+/*
+FragmentManager fragmentManager = getSupportFragmentManager();
+FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+MAIN_MENU main_menu = new MAIN_MENU();
+fragmentTransaction.add(R.id.place_view_in_here, main_menu);
+fragmentTransaction.commit();
+*/

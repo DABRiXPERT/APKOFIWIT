@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="122dp"
+            android:layout_marginBottom="1dp"
             android:text="@string/game_title"
             android:textColor="@color/black"
             android:textSize="36sp"
@@ -28,7 +29,8 @@
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="269dp"
+            android:layout_marginBottom="136dp"
+            android:gravity="center"
             android:text="@string/ver_failed_to_load"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -64,6 +66,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="72sp"
                 android:text="@string/setting"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/useless_textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/credits"
+                android:layout_width="match_parent"
+                android:layout_height="72sp"
+                android:text="@string/credits"
                 android:textSize="24sp" />
         </LinearLayout>
 

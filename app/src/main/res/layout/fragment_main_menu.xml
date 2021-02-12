@@ -62,10 +62,10 @@
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/setting"
+                android:id="@+id/ranking"
                 android:layout_width="match_parent"
                 android:layout_height="72sp"
-                android:text="@string/setting"
+                android:text="@string/ranking"
                 android:textSize="24sp" />
 
             <TextView

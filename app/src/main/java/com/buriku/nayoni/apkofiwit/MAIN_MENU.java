@@ -4,10 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,7 @@ public class MAIN_MENU extends Fragment {
 
     TextView version;
     Button start;
-    Button setting;
+    Button ranking;
     Button credits;
     MainActivity activity;
     String current_ver = "";
@@ -39,7 +37,7 @@ public class MAIN_MENU extends Fragment {
         getFragmentManager().popBackStack();
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
         start = view.findViewById(R.id.start_button);
-        setting = view.findViewById(R.id.setting);
+        ranking = view.findViewById(R.id.ranking);
         credits = view.findViewById(R.id.credits);
         version = view.findViewById(R.id.version);
         if (getString(R.string.indev) != "true")
@@ -57,7 +55,7 @@ public class MAIN_MENU extends Fragment {
                 Snackbar.make(view, "PRESSED!", Snackbar.LENGTH_LONG).show();
             }
         });
-        setting.setOnClickListener(new View.OnClickListener() {
+        ranking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="ingame_blue">#1E88E5</color>
+    <color name="ingame_status_blue">#801E88E5</color>
+    <color name="ingame_green">#00C853</color>
+    <color name="ingame_status_green">#8000C853</color>
+    <color name="ingame_yellow">#FBC02D</color>
+    <color name="ingame_status_yellow">#80FBC02D</color>
+    <color name="ingame_red">#FF1744</color>
+    <color name="ingame_status_red">#80FF1744</color>
+    <color name="ingame_gray">#73282828</color>
+    <color name="ingame_status_gray">#46282828</color>
 </resources>

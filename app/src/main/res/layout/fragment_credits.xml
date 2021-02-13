@@ -15,7 +15,7 @@
             android:layout_width="371dp"
             android:layout_height="0dp"
             android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="380dp"
             android:src="@drawable/rcc2021"
             app:layout_constraintBottom_toTopOf="@+id/exit_button"
@@ -27,12 +27,10 @@
             android:id="@+id/scrollView"
             android:layout_width="356dp"
             android:layout_height="381dp"
-            android:layout_marginStart="26dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             app:layout_constraintVertical_bias="0.0">
 

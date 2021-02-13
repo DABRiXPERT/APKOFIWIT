@@ -1,8 +1,14 @@
 package com.buriku.nayoni.apkofiwit;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -23,6 +29,7 @@ public class MAIN_MENU extends Fragment {
     Button credits;
     MainActivity activity;
     String current_ver = "";
+    Context context;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +43,11 @@ public class MAIN_MENU extends Fragment {
 
         getFragmentManager().popBackStack();
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
+        context = activity.getBaseContext();
+        getActivity().setTitle("MAIN MENU");
+        activity.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(context, R.color.ingame_gray)));
+        activity.getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.ingame_status_gray));
+
         start = view.findViewById(R.id.start_button);
         ranking = view.findViewById(R.id.ranking);
         credits = view.findViewById(R.id.credits);
@@ -52,7 +64,7 @@ public class MAIN_MENU extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(view, "PRESSED!", Snackbar.LENGTH_LONG).show();
+
             }
         });
         ranking.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +85,7 @@ public class MAIN_MENU extends Fragment {
 
         return view;
     }
+
 }
 /*
 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -80,4 +93,9 @@ FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 MAIN_MENU main_menu = new MAIN_MENU();
 fragmentTransaction.add(R.id.place_view_in_here, main_menu);
 fragmentTransaction.commit();
+*/
+/*
+Context context = activity.getBaseContext();
+activity.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(context, R.color.ingame_red)));
+activity.getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.ingame_status_red));
 */

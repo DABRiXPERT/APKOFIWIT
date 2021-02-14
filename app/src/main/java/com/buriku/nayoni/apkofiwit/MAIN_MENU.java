@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
@@ -64,7 +65,10 @@ public class MAIN_MENU extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                SETTING setting = new SETTING();
+                fragmentTransaction.replace(R.id.place_view_in_here, setting);
+                fragmentTransaction.commit();
             }
         });
         ranking.setOnClickListener(new View.OnClickListener() {
@@ -82,10 +86,8 @@ public class MAIN_MENU extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
         return view;
     }
-
 }
 /*
 FragmentManager fragmentManager = getSupportFragmentManager();

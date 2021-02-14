@@ -15,6 +15,8 @@
     <color name="ingame_status_yellow">#80FBC02D</color>
     <color name="ingame_red">#FF1744</color>
     <color name="ingame_status_red">#80FF1744</color>
+    <color name="ingame_reder">#FF0000</color>
+    <color name="ingame_status_reder">#80FF0000</color>
     <color name="ingame_gray">#73282828</color>
     <color name="ingame_status_gray">#46282828</color>
 </resources>

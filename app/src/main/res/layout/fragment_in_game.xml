@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,5 +10,178 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/stat_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="@string/r_e_a_d_y_w_i_d_e"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stat_text">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/ctrl1"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl2"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl3"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl4"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/ctrl5"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl6"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl7"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl8"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/ctrl9"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl10"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl11"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl12"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/ctrl13"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl14"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl15"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/ctrl16"
+                    android:layout_width="100sp"
+                    android:layout_height="128sp"
+                    android:layout_weight="1"
+                    android:textSize="24sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar_Bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -1,16 +1,7 @@
 package com.buriku.nayoni.apkofiwit;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +14,11 @@ import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -40,7 +35,11 @@ public class SETTING extends Fragment {
     Button start_game;
     Button exit;
     int mode;
+    int secs;
+    int tiles;
     int set = 3;
+    int yellow_active;
+    int amp_active;
     String moni_display;
     String[] judge_type = {"NORMAL", "ON", "OFF"};
     MainActivity activity;
@@ -177,7 +176,6 @@ public class SETTING extends Fragment {
                 set = progress;
                 if (mode == 0)
                 {
-                    int secs;
                     switch (set)
                     {
                         case 0:
@@ -226,7 +224,6 @@ public class SETTING extends Fragment {
                 }
                 if (mode == 1)
                 {
-                    int tiles;
                     switch (set)
                     {
                         case 0:
@@ -291,6 +288,7 @@ public class SETTING extends Fragment {
                     judge_text.setText("There are 100% of chance that YELLOW TILES appears.");
                 if (position == 2)
                     judge_text.setText("There are 0% of chance that YELLOW TILES appears.");
+                yellow_active = position;
             }
 
             @Override
@@ -305,10 +303,12 @@ public class SETTING extends Fragment {
                 if (isChecked)
                 {
                     Snackbar.make(view, "ON!", Snackbar.LENGTH_SHORT).show();
+                    amp_active = 1;
                 }
                 else
                 {
                     Snackbar.make(view, "OFF!", Snackbar.LENGTH_SHORT).show();
+                    amp_active = 0;
                 }
             }
         });
@@ -316,7 +316,19 @@ public class SETTING extends Fragment {
         start_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(view, "PRESSED!", Snackbar.LENGTH_SHORT).show();
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                IN_GAME in_game = new IN_GAME();
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("MODE", mode);
+                bundle.putInt("TIME", secs);
+                bundle.putInt("TILES", tiles);
+                bundle.putInt("YELLOW_ACTIVE", yellow_active);
+                bundle.putInt("BLUE_ACTIVE",amp_active);
+
+                in_game.setArguments(bundle);
+                fragmentTransaction.replace(R.id.place_view_in_here, in_game);
+                fragmentTransaction.commit();
             }
         });
 

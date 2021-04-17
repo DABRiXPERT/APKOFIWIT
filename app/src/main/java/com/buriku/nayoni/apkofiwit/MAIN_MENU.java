@@ -46,7 +46,7 @@ public class MAIN_MENU extends Fragment {
         ranking = view.findViewById(R.id.ranking);
         credits = view.findViewById(R.id.credits);
         version = view.findViewById(R.id.version);
-        if (getString(R.string.indev) != "true")
+        if (!getString(R.string.indev).equals("true"))
         {
             current_ver += "[CONSTRUCTING]\n";
             Log.w("DAB", "indev true.");

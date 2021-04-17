@@ -1,6 +1,7 @@
 package com.buriku.nayoni.apkofiwit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,56 +70,14 @@ public class SETTING extends Fragment {
         start_game = view.findViewById(R.id.start_the_game);
         exit = view.findViewById(R.id.exit_from_setup);
 
+
         mode_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 layout_details.setVisibility(View.VISIBLE);
                 mode = 0;
-                int secs;
-                switch (set)
-                {
-                    case 0:
-                        secs = 30;
-                        break;
-                    case 1:
-                        secs = 40;
-                        break;
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        secs = 45 + ((set - 2) * 15);
-                        break;
-                    case 6:
-                        secs = 100;
-                        break;
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                        secs = 105 + ((set - 7) * 15);
-                        break;
-                    case 12:
-                    case 13:
-                    case 14:
-                    case 15:
-                    case 16:
-                        secs = 180 + ((set - 12) * 30);
-                        break;
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 20:
-                        secs = 450 + ((set - 17) * 150);
-                        break;
-                    case 21:
-                        secs = 1000;
-                        break;
-                    default:
-                        secs = 0;
-                }
-                moni_display = String.format(" TIME SET:%2d m %02d s. ", secs/60, secs%60);
+                secs = 60;
+                moni_display = String.format(" TIME SET: %2d m %02d s. ", secs/60, secs%60);
                 start_game.setEnabled(true);
                 diff_moni.setText(moni_display);
             }
@@ -128,42 +87,7 @@ public class SETTING extends Fragment {
             public void onClick(View v) {
                 layout_details.setVisibility(View.VISIBLE);
                 mode = 1;
-                int tiles;
-                switch (set)
-                {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                        tiles = 25 + (set * 25);
-                        break;
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 12:
-                        tiles = 200 + ((set - 6) * 50);
-                        break;
-                    case 13:
-                    case 14:
-                    case 15:
-                    case 16:
-                    case 17:
-                        tiles = 600 + ((set - 13) * 100);
-                        break;
-                    case 18:
-                    case 19:
-                    case 20:
-                    case 21:
-                        tiles = 1250 + ((set - 18) * 250);
-                        break;
-                    default:
-                        tiles = 0;
-                }
+                tiles = 100;
                 moni_display = String.format(" TILES SET: %4d tls. ", tiles);
                 start_game.setEnabled(true);
                 diff_moni.setText(moni_display);
@@ -217,9 +141,9 @@ public class SETTING extends Fragment {
                             secs = 1000;
                             break;
                         default:
-                            secs = 0;
+                            secs = -1;
                     }
-                    moni_display = String.format(" TIME SET:%2d m %02d s. ", secs/60, secs%60);
+                    moni_display = String.format(" TIME SET: %2d m %02d s. ", secs/60, secs%60);
                     diff_moni.setText(moni_display);
                 }
                 if (mode == 1)
@@ -257,7 +181,7 @@ public class SETTING extends Fragment {
                             tiles = 1250 + ((set - 18) * 250);
                             break;
                         default:
-                            tiles = 0;
+                            tiles = -1;
                     }
                     moni_display = String.format(" TILES SET: %4d tls. ", tiles);
                     diff_moni.setText(moni_display);
@@ -317,7 +241,7 @@ public class SETTING extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                IN_GAME in_game = new IN_GAME();
+//              IN_GAME in_game = new IN_GAME();
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("MODE", mode);
@@ -326,9 +250,15 @@ public class SETTING extends Fragment {
                 bundle.putInt("YELLOW_ACTIVE", yellow_active);
                 bundle.putInt("BLUE_ACTIVE",amp_active);
 
-                in_game.setArguments(bundle);
-                fragmentTransaction.replace(R.id.place_view_in_here, in_game);
-                fragmentTransaction.commit();
+                Intent intent = new Intent(getActivity(), PROGRESSBAR_CTRL.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+                getActivity().finish();
+//              in_game.setArguments(bundle);
+//              fragmentTransaction.replace(R.id.place_view_in_here, in_game);
+//              fragmentTransaction.commit();
             }
         });
 

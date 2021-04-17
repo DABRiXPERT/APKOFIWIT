@@ -7,9 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.w("DAB", "NAME: " + BuildConfig.VERSION_NAME);
         Log.w("DAB", "CODE: " + BuildConfig.VERSION_CODE);
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         MAIN_MENU main_menu = new MAIN_MENU();

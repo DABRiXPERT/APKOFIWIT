@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-        .setTitle(R.string.exit)
-        .setMessage(R.string.before_exiting_the_app)
-        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        })
-        .setNegativeButton(R.string.no, null)
-        .show();
+            .setTitle(R.string.exit)
+            .setMessage(R.string.before_exiting_the_app)
+            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            })
+            .setNegativeButton(R.string.no, null)
+            .show();
     }
 }

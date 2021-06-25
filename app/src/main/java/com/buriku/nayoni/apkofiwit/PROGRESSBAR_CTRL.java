@@ -1,18 +1,16 @@
 package com.buriku.nayoni.apkofiwit;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
@@ -29,7 +27,7 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
     int mode;//0 = TIME, 1 = TILES
     int time;//FOR TIME(SEC)
     int note;//FOR TILES
-    int mode_yellow;//1 = OFF, 0 = NORMAL, 2 = ON
+    int mode_yellow;//0 = NORMAL, 1 = ON, 2 = OFF
     int mode_blue;//0 = OFF, 1 = ON
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +46,7 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
         context = getApplicationContext();
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(context, R.color.ingame_gray)));
         getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.ingame_status_gray));
-        setTitle("GENERATING CHART...");
+        setTitle(R.string.generating_map);
 
         textView = findViewById(R.id.text_progress);
         progressBar = findViewById(R.id.bar_progress);
@@ -69,6 +67,22 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
         });
         thread.start();
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.exit)
+            .setMessage(R.string.before_exiting_the_app)
+            .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            })
+            .setNegativeButton(R.string.no, null)
+            .show();
+    }
+
     // HEAD OF: GENERATE_CHART
     public void GENERATE_CHART()
     {
@@ -83,12 +97,12 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
         int mode = this.mode;//0 = TIME, 1 = TILES
         int time;//FOR TIME(SEC)
         int note;//FOR TILES
-        int mode_yellow = this.mode_yellow;//1 = OFF, 0 = NORMAL, 2 = ON
+        int mode_yellow = this.mode_yellow;//0 = NORMAL, 1 = ON, 2 = OFF
         int mode_blue = this.mode_blue;//0 = OFF, 1 = ON
         if (mode == 0)
         {
             time = this.time;
-            if (mode_yellow == 2)
+            if (mode_yellow == 1)
                 note = (random.nextInt(8) + 24) * time;//TIME = (24~32) * SECS
             else
                 note = (random.nextInt(41) + 87) * time;//TIME = (87~128) * SECS
@@ -97,11 +111,11 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
             note = this.note;//TOTAL NOTE
 //----------------------------------------------------------------------------------------------------------------------MODE SET
         STATUS(1);
-        if (mode_yellow == 1)
+        if (mode_yellow == 2)
         {
             yellow_pct = 0;
         }
-        if (mode_yellow == 2)
+        if (mode_yellow == 1)
         {
             yellow_pct = 1;
         }
@@ -214,13 +228,13 @@ public class PROGRESSBAR_CTRL extends AppCompatActivity {
         while (note_counter > 0)
         {
             amount_per_tile[amt_length] = random.nextInt(1000);
-            if(0 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 555)
+            if(0 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 275)
                 amount_per_tile[amt_length] = 1;
-            else if(555 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 876)
+            else if(275 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 565)
                 amount_per_tile[amt_length] = 2;
-            else if(876 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 956)
+            else if(565 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 802)
                 amount_per_tile[amt_length] = 3;
-            else if(956 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 1000)
+            else if(802 <= amount_per_tile[amt_length] && amount_per_tile[amt_length] < 1000)
                 amount_per_tile[amt_length] = 4;
             else
                 amount_per_tile[amt_length] = 0;

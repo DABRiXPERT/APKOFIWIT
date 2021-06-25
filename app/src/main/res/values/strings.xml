@@ -16,10 +16,28 @@
     <string name="blue_tiles">TILE / SCORE\nAMPLIFIER\n[BLUE TILES]</string>
     <string name="checkbox_blue_tiles">ACTIVATE</string>
     <!-- GENERATING ALERTDIALOG -->
-    <string name="generating_map">GENERATING MAP</string>
+    <string name="generating_map">GENERATING MAP...</string>
     <string name="test">TEST MESSAGE</string>
     <!-- IN GAME -->
     <string name="r_e_a_d_y_w_i_d_e"> R E A D Y . . . </string><!--11 OR 12 NUM INSIDE.-->
+    <!-- RESULT PAGE -->
+    <string name="result">RESULT</string>
+    <string name="yl_nml">YL_NML</string>
+    <string name="yl_on">YL_ON</string>
+    <string name="bl">BL</string>
+    <string name="perfect_plus">PERFECT+: </string>
+    <string name="perfect">PERFECT: </string>
+    <string name="great">GREAT: </string>
+    <string name="good">GOOD: </string>
+    <string name="bad">BAD: </string>
+    <string name="miss">MISS: </string>
+    <string name="wrong">WRONG: </string>
+    <string name="goodz">GOODZ</string>
+    <string name="all_perfect_plus">ALL PERFECT PLUS!!!!!</string>
+    <string name="all_perfect">ALL PERFECT!!!!</string>
+    <string name="full_combo">FULL COMBO!!!</string>
+    <string name="full_combo_minus">FULL COMBO MINUS!!</string>
+    <string name="no_wrong">NO WRONG!</string>
     <!-- ABORT -->
     <string name="pause">PAUSE</string>
     <string name="exit">EXIT</string>
